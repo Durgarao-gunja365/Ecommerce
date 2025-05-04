@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useCart } from './CartProvider';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const { cartCount } = useCart();
 
   const toggleMobileMenu = () => {
@@ -16,37 +16,37 @@ const Navbar = () => {
         <div className="flex justify-between h-20 items-center">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="/" className="text-2xl font-bold text-white hover:text-blue-100 transition-colors duration-300 flex items-center">
+            <Link to="/" className="text-2xl font-bold text-white hover:text-blue-100 transition-colors duration-300 flex items-center">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
               ShopCart
-            </a>
+            </Link>
           </div>
 
           {/* Right side navigation */}
           <div className="flex items-center space-x-6">
             <div className="hidden md:flex space-x-1">
-              <a href="/" className="px-4 py-2 text-sm font-medium text-white hover:bg-white/20 rounded-lg transition-all duration-300 hover:scale-105">Home</a>
-              <a href="/shop" className="px-4 py-2 text-sm font-medium text-white hover:bg-white/20 rounded-lg transition-all duration-300 hover:scale-105">Shop</a>
-              <a href="/deals" className="px-4 py-2 text-sm font-medium text-white hover:bg-white/20 rounded-lg transition-all duration-300 hover:scale-105">
+              <Link to="/" className="px-4 py-2 text-sm font-medium text-white hover:bg-white/20 rounded-lg transition-all duration-300 hover:scale-105">Home</Link>
+              <Link to="/shop" className="px-4 py-2 text-sm font-medium text-white hover:bg-white/20 rounded-lg transition-all duration-300 hover:scale-105">Shop</Link>
+              <Link to="/deals" className="px-4 py-2 text-sm font-medium text-white hover:bg-white/20 rounded-lg transition-all duration-300 hover:scale-105">
                 <span className="relative">
                   Deals
                   <span className="absolute -top-2 -right-3 bg-yellow-400 text-xs text-gray-900 font-bold px-1.5 py-0.5 rounded-full animate-pulse">HOT</span>
                 </span>
-              </a>
-              <a href="/about" className="px-4 py-2 text-sm font-medium text-white hover:bg-white/20 rounded-lg transition-all duration-300 hover:scale-105">About</a>
-              <a href="/cart" className="px-4 py-2 text-sm font-medium text-white hover:bg-white/20 rounded-lg transition-all duration-300 hover:scale-105">Cart</a>
+              </Link>
+              <Link to="/about" className="px-4 py-2 text-sm font-medium text-white hover:bg-white/20 rounded-lg transition-all duration-300 hover:scale-105">About</Link>
+              <Link to="/cart" className="px-4 py-2 text-sm font-medium text-white hover:bg-white/20 rounded-lg transition-all duration-300 hover:scale-105">Cart</Link>
             </div>
 
             {/* Account and Cart */}
             <div className="flex items-center space-x-5">
-              <a href="#" className="text-white hover:text-blue-100 transition-colors duration-300 relative group">
+              <Link to="#" className="text-white hover:text-blue-100 transition-colors duration-300 relative group">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
                 <span className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-blue-100 group-hover:w-4/5 group-hover:transition-all duration-300"></span>
-              </a>
+              </Link>
 
               {/* Mobile menu button */}
               <button 
@@ -70,13 +70,13 @@ const Navbar = () => {
         {/* Mobile menu */}
         <div className={`md:hidden transition-all duration-500 ease-in-out overflow-hidden ${isMobileMenuOpen ? 'max-h-96' : 'max-h-0'}`}>
           <div className="px-2 pt-2 pb-4 space-y-2 bg-gradient-to-b from-blue-700 to-purple-700 rounded-lg mt-2">
-            <a href="/" className="block px-4 py-3 rounded-lg text-base font-medium text-white hover:bg-white/20 transition-colors duration-300">Home</a>
-            <a href="/shop" className="block px-4 py-3 rounded-lg text-base font-medium text-white hover:bg-white/20 transition-colors duration-300">Shop</a>
-            <a href="/deals" className="block px-4 py-3 rounded-lg text-base font-medium text-white hover:bg-white/20 transition-colors duration-300 flex items-center">
+            <Link to="/" className="block px-4 py-3 rounded-lg text-base font-medium text-white hover:bg-white/20 transition-colors duration-300">Home</Link>
+            <Link to="/shop" className="block px-4 py-3 rounded-lg text-base font-medium text-white hover:bg-white/20 transition-colors duration-300">Shop</Link>
+            <Link to="/deals" className="block px-4 py-3 rounded-lg text-base font-medium text-white hover:bg-white/20 transition-colors duration-300 flex items-center">
               Deals
               <span className="ml-2 bg-yellow-400 text-gray-900 text-xs font-bold px-2 py-0.5 rounded-full">HOT</span>
-            </a>
-            <a href="/about" className="block px-4 py-3 rounded-lg text-base font-medium text-white hover:bg-white/20 transition-colors duration-300">About</a>
+            </Link>
+            <Link to="/about" className="block px-4 py-3 rounded-lg text-base font-medium text-white hover:bg-white/20 transition-colors duration-300">About</Link>
           </div>
         </div>
       </div>
